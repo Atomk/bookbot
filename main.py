@@ -12,8 +12,13 @@ def main():
         sys.exit(1)
 
     book_path = sys.argv[1]
-    # path has to be absolute, or relative to this script
-    book_text = get_book_text(book_path)
+    try:
+        book_text = get_book_text(book_path)
+    except FileNotFoundError as e:
+        print(e)
+        print("note: path has to be absolute, or relative to `main.py`")
+        return
+
     num_words = count_words(book_text)
     freq_dict = character_frequency(book_text)
 
