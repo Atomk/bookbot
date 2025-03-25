@@ -1,3 +1,4 @@
+import sys
 from stats import count_words, character_frequency, process_characters_dict
 
 def get_book_text(filepath) -> str:
@@ -6,7 +7,12 @@ def get_book_text(filepath) -> str:
         return file_contents
 
 def main():
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    book_path = sys.argv[1]
+    # path has to be absolute, or relative to this script
     book_text = get_book_text(book_path)
     num_words = count_words(book_text)
     freq_dict = character_frequency(book_text)
