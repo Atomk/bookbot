@@ -24,3 +24,17 @@ def process_characters_dict(input) -> list[dict]:
 
     sorted_list.sort(reverse=True, key=sort_on)
     return sorted_list
+
+def word_frequency_sorted(text: str, case_sensitive=False) -> list[dict]:
+    words_dict = {}
+    words = text.split() if case_sensitive else text.lower().split()
+
+    for word in words:
+        if word not in words_dict:
+            words_dict[word] = 0
+        words_dict[word] += 1
+
+    list_of_dicts = [ { "word": key, "count": val } for key, val in words_dict.items() ]
+    list_of_dicts.sort(reverse=True, key=sort_on)
+
+    return list_of_dicts

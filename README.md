@@ -21,17 +21,25 @@ Output for Frankenstein, obtained from the [Gutenberg](https://www.gutenberg.org
 Analyzing book found at books/frankenstein.txt...
 ----------- Word Count ----------
 Found 75767 total words
---------- Character Count -------
+--------- Word Frequency --------
+the: 4192
+and: 2832
+i: 2655
+of: 2627
+to: 2038
+my: 1660
+a: 1357
+in: 1120
+...11665 more
+------ Character Frequency ------
 e: 44538
 t: 29493
 a: 25894
 o: 24494
 i: 23927
-...
-æ: 28
-â: 8
-ê: 7
-ë: 2
-ô: 1
+n: 23643
+s: 20360
+r: 20079
+...60 more
 ============= END ===============
 ```
