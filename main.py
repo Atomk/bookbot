@@ -1,5 +1,10 @@
 import sys
-from stats import count_words, character_frequency, process_characters_dict
+from stats import (
+    count_words,
+    character_frequency,
+    process_characters_dict,
+)
+
 
 def get_book_text(filepath) -> str:
     with open(filepath) as f:
@@ -19,7 +24,7 @@ def print_character_frequency(book_text, max_lines=0):
 
         count_lines += 1
         if max_lines > 0 and count_lines == max_lines:
-            skipped = len(freq_dict) - count_lines
+            skipped = len(sorted_freqs) - count_lines
             if skipped > 0:
                 print(f"...{skipped} more")
             return
@@ -38,7 +43,6 @@ def main():
         return
 
     num_words = count_words(book_text)
-    freq_dict = character_frequency(book_text)
 
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
@@ -46,11 +50,6 @@ def main():
     print(f"Found {num_words} total words")
     print("------ Character Frequency ------")
     print_character_frequency(book_text, 10)
-
-    sorted_freqs = process_characters_dict(freq_dict)
-    for entry in sorted_freqs:
-        if entry["character"].isalpha():
-            print(f"{entry["character"]}: {entry["count"]}")
 
     print("============= END ===============")
 
